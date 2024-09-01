@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ProAspnetCore.Models;
 
 namespace ProAspnetCore.Controllers
 {
@@ -10,7 +11,14 @@ namespace ProAspnetCore.Controllers
             return View();
         }
 
+        [HttpGet]
         public ViewResult RsvpForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult RsvpForm(GuestResponse guestResponse)
         {
             return View();
         }
