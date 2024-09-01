@@ -5,7 +5,7 @@ namespace ProAspnetCore.Controllers
 {
     public class PartyInvitesController : Controller
     {
-        
+
         public IActionResult Index()
         {
             return View();
@@ -20,8 +20,20 @@ namespace ProAspnetCore.Controllers
         [HttpPost]
         public ViewResult RsvpForm(GuestResponse guestResponse)
         {
-            Repository.AddResponse(guestResponse);
-            return View("Thanks", guestResponse);
+            if (ModelState.IsValid)
+            {
+                Repository.AddResponse(guestResponse);
+                return View("Thanks", guestResponse);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ViewResult ListResponses()
+        {
+            return View(Repository.Responses.Where(r => r.WillAttend == true));
         }
 
     }

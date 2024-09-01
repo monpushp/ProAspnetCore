@@ -8,32 +8,46 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>RSVP Form</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
 
 <body>
-    <form asp-action="RsvpForm" method="post">
-        <div>
-            <label asp-for="Name">Your name:</label>
-            <input asp-for="Name" />
-        </div>
-        <div>
-            <label asp-for="Email">Your email:</label>
-            <input asp-for="Email" />
-        </div>
-        <div>
-            <label asp-for="Phone">Your phone:</label>
-            <input asp-for="Phone" />
-        </div>
-        <div>
-            <label asp-for="WillAttend">Will you attend?</label>
-            <select asp-for="WillAttend">
-                <option value="">Choose an option</option>
-                <option value="true">Yes, I will be there</option>
-                <option value="false">No, I can't come</option>
-            </select>
-        </div>
-        <button type="submit">Submit RSVP</button>
-    </form>
+    <div class="container mt-sm-5 mt-2">
+        <form asp-action="RsvpForm" method="post">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="m-2 p-2">RSVP</h5>
+                </div>
+                <div class="card-body bg-light">
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Name">Your name:</label>
+                        <input class="form-control" asp-for="Name" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Email">Your email:</label>
+                        <input class="form-control" asp-for="Email" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Phone">Your phone:</label>
+                        <input class="form-control" asp-for="Phone" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="WillAttend">Will you attend?</label>
+                        <select class="form-select" asp-for="WillAttend">
+                            <option value="">Choose an option</option>
+                            <option value="true">Yes, I will be there</option>
+                            <option value="false">No, I can't come</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer bg-white">
+                    <button class="btn btn-primary" type="submit">Submit RSVP</button>
+                    <div asp-validation-summary="All"></div>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
