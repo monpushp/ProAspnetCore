@@ -6,13 +6,15 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title></title>
-    </head>
-    <body>
-        <h2>Here is the list of people attending the party</h2>
-        <table>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="text-center p-2">
+        <h2 class="text-center">Here is the list of people attending the party</h2>
+        <table class="table table-bordered table-striped table-sm">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -21,15 +23,16 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach (GuestResponse guest in Model)
-            {
-                <tr>
-                    <td>@guest.Name</td>
-                    <td>@guest.Email</td>
-                    <td>@guest.Phone</td>
-                </tr>
-            }
-        </tbody>
+                @foreach (GuestResponse guest in Model)
+                {
+                    <tr>
+                        <td>@guest.Name</td>
+                        <td>@guest.Email</td>
+                        <td>@guest.Phone</td>
+                    </tr>
+                }
+            </tbody>
         </table>
-    </body>
+    </div>
+</body>
 </html>
