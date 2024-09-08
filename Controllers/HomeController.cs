@@ -20,6 +20,11 @@ public class HomeController : Controller
         return View("MyView", viewModel);
     }
 
+    public IActionResult Welcome(string param1)
+    {
+        return View("Welcome", param1);
+    }
+
     public IActionResult Privacy()
     {
         return View();
