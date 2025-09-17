@@ -2,15 +2,10 @@
 
 namespace ProAspnetCore.Controllers
 {
-    public class LanguageFeaturesController : Controller
+    public class LanguageFeaturesController(ILogger<LanguageFeaturesController> logger) : Controller
     {
 
-        private readonly ILogger<LanguageFeaturesController> _logger;
-
-        public LanguageFeaturesController(ILogger<LanguageFeaturesController> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<LanguageFeaturesController> _logger = logger;
 
         public IActionResult Index()
         {

@@ -4,14 +4,9 @@ using ProAspnetCore.Models;
 
 namespace ProAspnetCore.Controllers;
 
-public class HomeController : Controller
+public class HomeController(ILogger<HomeController> logger) : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
+    private readonly ILogger<HomeController> _logger = logger;
 
     public IActionResult Index()
     {
@@ -22,6 +17,7 @@ public class HomeController : Controller
 
     public IActionResult Welcome(string param1)
     {
+        _logger.Log(LogLevel.Error, "Value of param1 = " + param1);
         return View("Welcome", param1);
     }
 

@@ -3,24 +3,24 @@
     public class Product
     {
 
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public decimal? Price { get; set; }
 
         public static Product[] GetProducts()
         {
-            Product kayak = new Product
+            Product kayak = new()
             {
                 Name = "Kayak",
                 Price = 275M
             };
 
-            Product lifeJacket = new Product
+            Product lifeJacket = new()
             {
                 Name = "LifeJacker",
                 Price = 48.95M
             };
 
-            return new Product[] { kayak, lifeJacket, null };
+            return [kayak, lifeJacket, null];
         }
     }
 }
